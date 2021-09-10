@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .size {
+            width: 250px;
+            height: 250px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <label>Click to pick random colors:</label>
+    <button onclick="randomColor()">Click</button>
+    <div id="randomcolor" class="size"></div>
+    <p id="color"></p>
+    <button onclick="clickToCopy()">click to copy</button>
+
+    <script>
+        
+        function randomColor () {
+            var colors = "#";
+            for(let i = 0; i <6; i++) {
+                colors += [Math.floor(Math.random() * 10)].toString();
+            }
+
+            document.getElementById('randomcolor').style.background = colors;
+            document.getElementById('color').innerText = colors;
+        }
+        
+        function clickToCopy () {
+            var copyText = document.getElementById('color');
+            navigator.clipboard.writeText(copyText.value);
+            alert(copyText.value)
+        }
+        
+    </script>
+
+</body>
+</html>
